@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)"
+options: "6f29a4504ce0e27ae4af91249cf21b63abf4bad0d59bdc6413e9768e5a34da69"
+build_start_time: [1639912010, 412341117]
+build_end_time: [1639912010, 496256828]
+inputs:
+  "/Users/user/AndroidStudioProjects/university/ios/Runner/AppDelegate.swift": !private [1637162076, 297707080]
