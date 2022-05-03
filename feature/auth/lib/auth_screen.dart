@@ -11,16 +11,17 @@ import 'auth_widget.dart';
 
 class AuthScreen extends StatelessWidget {
   final TextEditingController emailTextController =
-      TextEditingController(text: 'korotkmax@gmail.com');
+  TextEditingController(text: 'maksim.stankevich.2001@gmail.com');
   final TextEditingController passwordTextController =
-      TextEditingController(text: 'parolparol');
+  TextEditingController(text: 'qwert12345');
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Auth'),
+          title: Text(AppText.AUTH),
+          centerTitle: true,
         ),
         body: Column(
           children: [
@@ -71,9 +72,9 @@ class AuthScreen extends StatelessWidget {
     required AuthError? error,
   }) {
     if (error is WrongCredentials) {
-      return 'Wrong credentials';
+      return 'Неправильная почта';
     } else if (error is EmailInUse) {
-      return 'Email in use';
+      return 'Почта занята';
     } else {
       return null;
     }
@@ -84,7 +85,7 @@ class AuthScreen extends StatelessWidget {
     required AuthError? error,
   }) {
     if (error is WrongCredentials) {
-      return 'Wrong credentials';
+      return 'Неправильный пароль';
     } else {
       return null;
     }

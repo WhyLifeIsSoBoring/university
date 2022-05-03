@@ -21,6 +21,8 @@ dependencies:
     path: ../../core/core
   navigation:
     path: ../../core/navigation
+  domain:
+    path: ../../domain
 
 dev_dependencies:
   flutter_test:

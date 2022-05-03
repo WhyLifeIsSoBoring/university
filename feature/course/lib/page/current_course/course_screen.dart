@@ -12,14 +12,11 @@ class CourseDescriptionScreen extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            backgroundColor: Colors.white,
             title: Text(
               'Подготовка к ЦТ',
-              style: TextStyle(color: Colors.black),
             ),
             leading: IconButton(
-              icon: Icon(Icons.navigate_before),
-              color: AppColorTheme.black,
+              icon: Icon(Icons.arrow_back_ios),
               tooltip: 'Назад',
               onPressed: () {
                 BlocProvider.of<CourseBloc>(context).add(Pop());

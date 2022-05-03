@@ -1,4 +1,4 @@
-import 'package:course/page/main/courses_page.dart';
+import 'package:auth/auth.dart';
 import 'package:presentation/presentation.dart';
 import 'package:splash/bloc/splash_screen_event.dart';
 import 'package:splash/bloc/splash_screen_state.dart';
@@ -18,8 +18,8 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
     SplashEvent event,
   ) async* {
     if (event is InitEvent) {
-      await Future.delayed(const Duration(milliseconds: 500));
-      appRouter.replace(Course.page());
+      await Future<void>.delayed(const Duration(milliseconds: 500));
+      appRouter.replace(AuthFeature.page());
     }
   }
 }

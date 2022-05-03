@@ -1,6 +1,10 @@
 class AppText {
-  static String SIGN_IN = 'Sign in';
-  static String SIGN_UP = 'Sign un';
-  static String PASSWORD = 'Password';
-  static String EMAIL = 'Email';
+  static String SIGN_IN = 'Войти';
+  static String SIGN_UP = 'Зарегистрироваться';
+  static String FIRST_NAME = 'Имя';
+  static String LAST_NAME = 'Фамилия';
+  static String PASSWORD = 'Пароль';
+  static String EMAIL = 'Почта';
+  static String AUTH = 'Авторизаиця';
+  static String REGISTRATION = 'Регистрация';
 }

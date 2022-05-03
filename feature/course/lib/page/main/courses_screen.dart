@@ -30,10 +30,8 @@ class CourseScreen extends StatelessWidget {
           //backgroundColor: Colors.blue,
           appBar: AppBar(
             centerTitle: true,
-            backgroundColor: Colors.white,
             title: Text(
               'Подготовка к ЦТ',
-              style: TextStyle(color: Colors.black),
             ),
           ),
           body: ListView.builder(
