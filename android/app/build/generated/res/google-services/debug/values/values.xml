@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="default_web_client_id" translatable="false">1086831956905-ve9nk68qipl0fssohaeml9fa4hdsle6b.apps.googleusercontent.com</string>
-    <string name="gcm_defaultSenderId" translatable="false">1086831956905</string>
-    <string name="google_api_key" translatable="false">AIzaSyAjUrB3V8LrCEPVibsd5FmIWCiLU5GeGR0</string>
-    <string name="google_app_id" translatable="false">1:1086831956905:android:ca07f787c9757522fb2ab8</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAjUrB3V8LrCEPVibsd5FmIWCiLU5GeGR0</string>
-    <string name="google_storage_bucket" translatable="false">university-project-c543c.appspot.com</string>
-    <string name="project_id" translatable="false">university-project-c543c</string>
+    <string name="default_web_client_id" translatable="false">71725113579-ca5pq5qivcg7c05s3fr6smtv9laqm46l.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">71725113579</string>
+    <string name="google_api_key" translatable="false">AIzaSyDfH5Ap2nqs8er0A_sYK1O2vTZWxYrRkUk</string>
+    <string name="google_app_id" translatable="false">1:71725113579:android:26819ff65d2cc9215cdeae</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDfH5Ap2nqs8er0A_sYK1O2vTZWxYrRkUk</string>
+    <string name="google_storage_bucket" translatable="false">university-a3bb3.appspot.com</string>
+    <string name="project_id" translatable="false">university-a3bb3</string>
 </resources>

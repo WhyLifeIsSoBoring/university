@@ -1,4 +1,5 @@
 class Dimensions {
+  static const double SPACE_10 = 10.0;
   static const double SPACE_20 = 20.0;
 
   static const double PADDING_8 = 8.0;

@@ -1,11 +1,11 @@
-import 'package:data/model/user.dart';
+import 'package:data/model/auth_user.dart';
 
 abstract class AuthProvider {
-  Future<User> signIn(SignInParams params);
+  Future<AuthUser> signIn(SignInParams params);
 
   Future<void> signOut();
 
-  Future<void> signUp(SignUpParams params);
+  Future<AuthUser> signUp(SignUpParams params);
 }
 
 abstract class SignInParams {}

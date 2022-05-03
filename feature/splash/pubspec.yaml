@@ -13,8 +13,8 @@ dependencies:
 
   presentation:
     path: ../../common/presentation
-  course:
-    path: ../../feature/course
+  auth:
+    path: ../auth
 
 
 dev_dependencies:

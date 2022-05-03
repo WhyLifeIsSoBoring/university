@@ -35,11 +35,9 @@ class _VideoScreenState extends State<VideoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColorTheme.white,
         centerTitle: true,
         title: Text(
           'Видео конференция',
-          style: TextStyle(color: AppColorTheme.black),
         ),
       ),
       body: SafeArea(
