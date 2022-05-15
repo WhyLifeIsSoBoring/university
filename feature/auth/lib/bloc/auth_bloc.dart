@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:auth/bloc/auth_event.dart';
 import 'package:auth/bloc/auth_state.dart';
-import 'package:course/course.dart';
 import 'package:domain/domain.dart';
+import 'package:home/home.dart';
 import 'package:presentation/presentation.dart';
 import 'package:registration/registration.dart';
 
@@ -27,7 +27,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Stream<AuthState> _handleSignIn(SignIn event) async* {
     try {
       await _signInUseCase.execute(event.signInParams);
-      _appRouter.push(Course.page());
+      _appRouter.push(HomeFeature.page());
     } on WrongCredentialsException catch (_) {
       yield AuthState(error: WrongCredentials());
     } catch (e) {

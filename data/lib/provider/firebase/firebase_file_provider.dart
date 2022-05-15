@@ -4,13 +4,13 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path/path.dart';
 
 class FirebaseFileProvider extends FileProvider {
-  static const String _APARTMENTS = 'apartments';
+  static const String _SOCIAL_EVENTS = 'social_events';
 
   @override
   Future<void> saveFile({required File file}) async {
     await FirebaseStorage.instance
         .ref()
-        .child(_APARTMENTS)
+        .child(_SOCIAL_EVENTS)
         .child(_getFileNameByPath(file.path))
         .putFile(file);
   }
@@ -19,7 +19,7 @@ class FirebaseFileProvider extends FileProvider {
   Future<String> getFileUrl({required File file}) async {
     return FirebaseStorage.instance
         .ref()
-        .child(_APARTMENTS)
+        .child(_SOCIAL_EVENTS)
         .child(_getFileNameByPath(file.path))
         .getDownloadURL();
   }

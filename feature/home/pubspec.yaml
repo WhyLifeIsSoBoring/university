@@ -1,4 +1,4 @@
-name: auth
+name: home
 description: A new Flutter package project.
 version: 0.0.1
 publish_to: none
@@ -10,14 +10,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   domain:
     path: ../../domain
+  data:
+    path: ../../data
+  core:
+    path: ../../core/core
   presentation:
     path: ../../common/presentation
-  registration:
-    path: ../registration
-  home:
-    path: ../home
 
 dev_dependencies:
   flutter_test:
