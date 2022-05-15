@@ -3,7 +3,7 @@ import 'package:domain/domain.dart';
 const String _TITLE = 'title';
 const String _DESCRIPTION = 'description';
 const String _DATE = 'date';
-const String _IMAGE_URL = 'imageUrl';
+const String _IMAGE_URL = 'image_url';
 
 class SocialEventToFirestoreMapper {
   static Map<String, dynamic> toFirestore(SocialEvent socialEvent) {

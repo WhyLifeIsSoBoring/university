@@ -24,81 +24,51 @@ class _EventsScreenState extends State<EventsScreen> {
               ),
             ),
             body: Padding(
-              padding: const EdgeInsets.only(
-                top: 16.0,
-                left: 8.0,
-                right: 8.0,
-              ),
-              child: state.allEvents.isNotEmpty
-                  ? Column(
-                      children: <Widget>[
-                        SearchBar(
-                          onClear: () {
-                            BlocProvider.of<EventsBloc>(context)
-                                .add(UpdateSearchText(newSearchText: ''));
-                            _searchController.clear();
-                          },
-                          onChanged: (String? newText) {
-                            BlocProvider.of<EventsBloc>(context)
-                                .add(UpdateSearchText(newSearchText: newText));
-                          },
-                          textController: _searchController,
-                        ),
-                        SizedBox(height: 10.0),
-                        if (state.filteredEvents.isNotEmpty) ...<Widget>{
-                          Expanded(
-                            child: ListView.builder(
-                              itemCount: state.filteredEvents.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return Padding(
-                                  padding: const EdgeInsets.only(top: 10.0),
-                                  child: GestureDetector(
-                                    //TODO open page with current event
-                                    onTap: () {},
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Align(
-                                          alignment: Alignment.topCenter,
-                                          child: Image.network(
-                                            state.filteredEvents[index].imageUrl,
-                                          ),
-                                        ),
-                                        SizedBox(height: 4.0),
-                                        Row(
-                                          children: <Widget>[
-                                            Expanded(
-                                              child: Text(
-                                                state.filteredEvents[index].title,
-                                                style: TextStyle(fontSize: 20),
-                                              ),
-                                            ),
-                                            Text(
-                                              state.filteredEvents[index].date,
-                                              style: TextStyle(fontSize: 20),
-                                            ),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
+                padding: const EdgeInsets.only(
+                  top: 16.0,
+                  left: 8.0,
+                  right: 8.0,
+                ),
+                child: state.allEvents.isNotEmpty
+                    ? Column(
+                        children: <Widget>[
+                          SearchBar(
+                            onClear: () {
+                              BlocProvider.of<EventsBloc>(context)
+                                  .add(UpdateSearchText(newSearchText: ''));
+                              _searchController.clear();
+                            },
+                            onChanged: (String? newText) {
+                              BlocProvider.of<EventsBloc>(context).add(
+                                  UpdateSearchText(newSearchText: newText));
+                            },
+                            textController: _searchController,
                           ),
-                        } else ...<Widget>{
-                          Text(
-                            'События не найдены',
-                            style: TextStyle(fontSize: 20),
-                          )
-                        }
-                      ],
-                    )
-                  : Center(
-                      child: CircularProgressIndicator(),
-                    ),
-            ),
+                          SizedBox(height: 10.0),
+                          if (state.filteredEvents.isNotEmpty) ...<Widget>{
+                            Expanded(
+                              child: ListView.builder(
+                                itemCount: state.filteredEvents.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return SocialEventItem(
+                                    title: state.filteredEvents[index].title,
+                                    date: state.filteredEvents[index].date,
+                                    imageUrl:
+                                        state.filteredEvents[index].imageUrl,
+                                    onTap: () {},
+                                  );
+                                },
+                              ),
+                            ),
+                          } else ...<Widget>{
+                            Text(
+                              'События не найдены',
+                              style: TextStyle(fontSize: 20),
+                            )
+                          }
+                        ],
+                      )
+                    : Loader()),
           );
         },
       ),
