@@ -34,14 +34,16 @@ class SocialEventItem extends StatelessWidget {
                   child: Text(
                     title,
                     style: TextStyle(fontSize: 20),
+                    textAlign: TextAlign.justify,
                   ),
                 ),
+                SizedBox(width: 10.0),
                 Text(
                   date,
                   style: TextStyle(fontSize: 20),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

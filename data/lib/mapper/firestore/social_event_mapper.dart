@@ -1,4 +1,4 @@
-import 'package:domain/domain.dart';
+import 'package:data/model/social_event.dart';
 
 const String _TITLE = 'title';
 const String _DESCRIPTION = 'description';

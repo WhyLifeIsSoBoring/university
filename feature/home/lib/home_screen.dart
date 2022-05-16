@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:home/events/events_screen.dart';
+import 'package:home/schools/schools_screen.dart';
 import 'package:presentation/presentation.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -37,10 +38,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.only(top: 10),
                 child: Column(
                   children: const <Widget>[
-                    Icon(Icons.newspaper_rounded),
+                    Icon(Icons.school_rounded),
                     Padding(
                       padding: EdgeInsets.only(top: 4.0),
-                      child: Text('События'),
+                      child: Text('Школы'),
                     )
                   ],
                 ),
@@ -51,10 +52,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.only(top: 10),
                 child: Column(
                   children: const <Widget>[
-                    Icon(Icons.newspaper_rounded),
+                    Icon(Icons.star_outlined),
                     Padding(
                       padding: EdgeInsets.only(top: 4.0),
-                      child: Text('События'),
+                      child: Text('Курсы'),
                     )
                   ],
                 ),
@@ -65,10 +66,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.only(top: 10),
                 child: Column(
                   children: const <Widget>[
-                    Icon(Icons.newspaper_rounded),
+                    Icon(Icons.more_vert_outlined),
                     Padding(
                       padding: EdgeInsets.only(top: 4.0),
-                      child: Text('События'),
+                      child: Text('Еще'),
                     )
                   ],
                 ),
@@ -93,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 builder: (BuildContext context) {
                   return CupertinoPageScaffold(
                     backgroundColor: AppColorTheme.white,
-                    child: EventsScreen(),
+                    child: SchoolsScreen(),
                   );
                 },
               );

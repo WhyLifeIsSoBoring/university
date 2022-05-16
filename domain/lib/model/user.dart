@@ -7,7 +7,7 @@ class User {
   final String email;
   final Role role;
 
-  User({
+  const User({
     required this.id,
     required this.firstName,
     required this.lastName,

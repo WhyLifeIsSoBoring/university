@@ -7,7 +7,7 @@ class RegisterParams {
   final String lastName;
   final Role role;
 
-  RegisterParams({
+  const RegisterParams({
     required this.email,
     required this.password,
     required this.firstName,
