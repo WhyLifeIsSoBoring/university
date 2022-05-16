@@ -2,6 +2,7 @@ import 'package:domain/domain.dart';
 import 'package:home/events/bloc/events_event.dart';
 import 'package:home/events/bloc/events_state.dart';
 import 'package:presentation/presentation.dart';
+import 'package:social_event/social_event.dart';
 
 export 'events_event.dart';
 export 'events_state.dart';
@@ -9,6 +10,7 @@ export 'events_state.dart';
 class EventsBloc extends Bloc<EventsEvent, EventsState> {
   final SocialEventRepository _socialEventRepository =
       appDependencies.get<SocialEventRepository>();
+  final AppRouter _appRouter = appDependencies.get<AppRouter>();
 
   EventsBloc() : super(EventsState());
 
@@ -29,6 +31,8 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
               .contains(state.searchText.toLowerCase()))
           .toList();
       yield state.copyWith(filteredEvents: _filteredEvents);
+    } else if (event is OpenCurrentEvent) {
+      _appRouter.push(SocialEventFeature.page(socialEvent: event.socialEvent));
     }
   }
 }

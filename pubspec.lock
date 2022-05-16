@@ -490,6 +490,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  social_event:
+    dependency: transitive
+    description:
+      path: "feature/social_event"
+      relative: true
+    source: path
+    version: "0.0.1"
   source_span:
     dependency: transitive
     description:

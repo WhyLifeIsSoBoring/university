@@ -1,5 +1,7 @@
 library design;
 
+export 'package:cached_network_image/cached_network_image.dart';
+
 export 'dimensions.dart';
 
 export 'theme/app_color_theme.dart';

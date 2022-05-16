@@ -55,7 +55,12 @@ class _EventsScreenState extends State<EventsScreen> {
                                     date: state.filteredEvents[index].date,
                                     imageUrl:
                                         state.filteredEvents[index].imageUrl,
-                                    onTap: () {},
+                                    onTap: () {
+                                      context.read<EventsBloc>().add(
+                                          OpenCurrentEvent(
+                                              socialEvent:
+                                                  state.filteredEvents[index]));
+                                    },
                                   );
                                 },
                               ),
