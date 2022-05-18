@@ -58,7 +58,7 @@ class _AuthWidgetState extends State<AuthWidget> {
                 suffixIcon: GestureDetector(
                   child: Icon(
                     obscureText
-                        ? Icons.visibility_rounded
+                        ? Icons.visibility_off_outlined
                         : Icons.visibility_outlined,
                   ),
                   onTap: _changePasswordVisibility,

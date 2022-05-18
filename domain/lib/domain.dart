@@ -10,6 +10,7 @@ export 'model/user.dart';
 export 'repository/auth_repository.dart';
 export 'repository/school_repository.dart';
 export 'repository/social_event_repository.dart';
+export 'repository/user_repository.dart';
 
 export 'usecase/sign_in_usecase.dart';
 export 'usecase/sign_out_usecase.dart';

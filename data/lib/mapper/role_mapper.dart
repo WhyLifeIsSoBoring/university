@@ -6,7 +6,7 @@ const String _TEACHER = 'TEACHER';
 const String _PARENT = 'PARENT';
 
 extension RoleToFirestoreMapper on Role {
-  String toFirestore() {
+  String toCustomString() {
     switch (this) {
       case Role.ADMIN:
         return _ADMIN;
@@ -21,7 +21,7 @@ extension RoleToFirestoreMapper on Role {
 }
 
 extension RoleFromStringMapper on String {
-  Role roleFromString() {
+  Role fromString() {
     switch (this) {
       case _ADMIN:
         return Role.ADMIN;

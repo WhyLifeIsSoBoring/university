@@ -1,16 +1,16 @@
 import 'package:domain/domain.dart';
 
-abstract class SchoolEvent {}
+abstract class SchoolsEvent {}
 
-class InitEvent extends SchoolEvent {}
+class InitEvent extends SchoolsEvent {}
 
-class UpdateSearchText extends SchoolEvent {
+class UpdateSearchText extends SchoolsEvent {
   final String? newSearchText;
 
   UpdateSearchText({required this.newSearchText});
 }
 
-class OpenCurrentSchool extends SchoolEvent {
+class OpenCurrentSchool extends SchoolsEvent {
   final School school;
 
   OpenCurrentSchool({required this.school});

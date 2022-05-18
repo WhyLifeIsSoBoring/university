@@ -7,6 +7,7 @@ class School {
   final String registration;
   final String teacherId;
   final List<String> studentIds;
+  final bool enterStatus;
 
   const School({
     required this.title,
@@ -17,5 +18,6 @@ class School {
     required this.registration,
     required this.teacherId,
     required this.studentIds,
+    required this.enterStatus,
   });
 }

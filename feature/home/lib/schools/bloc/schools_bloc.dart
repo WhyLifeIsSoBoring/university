@@ -2,19 +2,20 @@ import 'package:domain/domain.dart';
 import 'package:home/schools/bloc/schools_event.dart';
 import 'package:home/schools/bloc/schools_state.dart';
 import 'package:presentation/presentation.dart';
+import 'package:school/school_feature.dart';
 
 export 'schools_event.dart';
 export 'schools_state.dart';
 
-class SchoolBloc extends Bloc<SchoolEvent, SchoolsState> {
+class SchoolsBloc extends Bloc<SchoolsEvent, SchoolsState> {
   final SchoolRepository _schoolRepository =
       appDependencies.get<SchoolRepository>();
   final AppRouter _appRouter = appDependencies.get<AppRouter>();
 
-  SchoolBloc() : super(SchoolsState());
+  SchoolsBloc() : super(SchoolsState());
 
   @override
-  Stream<SchoolsState> mapEventToState(SchoolEvent event) async* {
+  Stream<SchoolsState> mapEventToState(SchoolsEvent event) async* {
     try {
       if (event is InitEvent) {
         final List<School> schools = await _schoolRepository.getAll();
@@ -32,7 +33,7 @@ class SchoolBloc extends Bloc<SchoolEvent, SchoolsState> {
             .toList();
         yield state.copyWith(filteredSchools: _filteredSchools);
       } else if (event is OpenCurrentSchool) {
-        // _appRouter.push(SocialEventFeature.page(socialEvent: event.socialEvent));
+        _appRouter.push(SchoolFeature.page(school: event.school));
       }
     } catch (e) {
       yield state.copyWith(

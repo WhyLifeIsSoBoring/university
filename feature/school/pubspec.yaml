@@ -1,4 +1,4 @@
-name: home
+name: school
 description: A new Flutter package project.
 version: 0.0.1
 publish_to: none
@@ -13,18 +13,9 @@ dependencies:
 
   domain:
     path: ../../domain
-  data:
-    path: ../../data
-  core:
-    path: ../../core/core
   presentation:
     path: ../../common/presentation
-  social_event:
-    path: ../social_event
-  school:
-    path: ../school
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0

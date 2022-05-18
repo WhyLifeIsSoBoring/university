@@ -9,7 +9,7 @@ class SchoolsState extends Equatable {
 
   static const List<School> _EMPTY_LIST = <School>[];
 
-  SchoolsState({
+  const SchoolsState({
     this.searchText = '',
     this.allSchools = _EMPTY_LIST,
     this.filteredSchools = _EMPTY_LIST,

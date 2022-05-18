@@ -8,6 +8,7 @@ const String _CONTACT = 'contact';
 const String _REGISTRATION = 'registration';
 const String _TEACHER_ID = 'teacher_id';
 const String _STUDENT_IDS = 'student_ids';
+const String _ENTER_STATUS = 'enter_status';
 
 class SchoolToFirestoreMapper {
   static Map<String, dynamic> toFirestore(School school) {
@@ -20,6 +21,7 @@ class SchoolToFirestoreMapper {
       _REGISTRATION: school.registration,
       _TEACHER_ID: school.teacherId,
       _STUDENT_IDS: school.studentIds,
+      _ENTER_STATUS: school.enterStatus,
     };
   }
 }
@@ -42,6 +44,7 @@ class SchoolFromFirestoreMapper {
       studentIds: (map[_STUDENT_IDS] as List<dynamic>)
           .map((dynamic studentId) => studentId as String)
           .toList(),
+      enterStatus: map[_ENTER_STATUS] as bool,
     );
   }
 }

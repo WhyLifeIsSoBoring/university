@@ -12,6 +12,7 @@ extension SchoolDataToDomainMapper on data.School {
       registration: registration,
       teacherId: teacherId,
       studentIds: studentIds,
+      enterStatus: enterStatus,
     );
   }
 }
@@ -27,6 +28,7 @@ extension SchoolDomainToDataMapper on domain.School {
       registration: registration,
       teacherId: teacherId,
       studentIds: studentIds,
+      enterStatus: enterStatus,
     );
   }
 }

@@ -13,9 +13,9 @@ class _SchoolsScreenState extends State<SchoolsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<SchoolBloc>(
-      create: (_) => SchoolBloc()..add(InitEvent()),
-      child: BlocBuilder<SchoolBloc, SchoolsState>(
+    return BlocProvider<SchoolsBloc>(
+      create: (_) => SchoolsBloc()..add(InitEvent()),
+      child: BlocBuilder<SchoolsBloc, SchoolsState>(
         builder: (BuildContext context, SchoolsState state) {
           return Scaffold(
             appBar: AppBar(
@@ -31,6 +31,7 @@ class _SchoolsScreenState extends State<SchoolsScreen> {
                 right: 8.0,
               ),
               child: _buildContent(
+                context,
                 allSchools: state.allSchools,
                 filteredSchools: state.filteredSchools,
                 errorMessage: state.errorMessage,
@@ -42,7 +43,8 @@ class _SchoolsScreenState extends State<SchoolsScreen> {
     );
   }
 
-  Widget _buildContent({
+  Widget _buildContent(
+    BuildContext context, {
     required List<School> allSchools,
     required List<School> filteredSchools,
     required String? errorMessage,
@@ -52,12 +54,12 @@ class _SchoolsScreenState extends State<SchoolsScreen> {
         children: <Widget>[
           SearchBar(
             onClear: () {
-              BlocProvider.of<SchoolBloc>(context)
+              BlocProvider.of<SchoolsBloc>(context)
                   .add(UpdateSearchText(newSearchText: ''));
               _searchController.clear();
             },
             onChanged: (String? newText) {
-              BlocProvider.of<SchoolBloc>(context)
+              BlocProvider.of<SchoolsBloc>(context)
                   .add(UpdateSearchText(newSearchText: newText));
             },
             textController: _searchController,
@@ -68,7 +70,46 @@ class _SchoolsScreenState extends State<SchoolsScreen> {
               child: ListView.builder(
                 itemCount: filteredSchools.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return SizedBox.shrink();
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 8.0,
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                filteredSchools[index].title,
+                                style: TextStyle(fontSize: 14.0),
+                                textAlign: TextAlign.justify,
+                              ),
+                            ),
+                            SizedBox(width: 10.0),
+                            SizedBox(
+                              height: 30,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  context.read<SchoolsBloc>().add(
+                                      OpenCurrentSchool(
+                                          school: filteredSchools[index]));
+                                },
+                                child: Center(
+                                  child: Text('Описание'),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Divider(
+                        height: 1.0,
+                        thickness: 2,
+                      ),
+                    ],
+                  );
                 },
               ),
             ),
