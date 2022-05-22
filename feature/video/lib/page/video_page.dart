@@ -27,11 +27,11 @@ class VideoPage extends Page<dynamic> {
   Route<dynamic> createRoute(BuildContext context) {
     return MaterialPageRoute<dynamic>(
       builder: (BuildContext context) => BlocProvider<VideoBloc>(
-        create: (BuildContext context) => VideoBloc(
+        create: (BuildContext context) => VideoBloc()..add(InitEvent()),
+        child: VideoScreen(
           roomName: roomName,
           roomToken: roomToken,
-        )..add(InitEvent()),
-        child: VideoScreen(),
+        ),
       ),
       settings: this,
     );
