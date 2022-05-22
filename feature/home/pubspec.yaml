@@ -23,6 +23,8 @@ dependencies:
     path: ../social_event
   school:
     path: ../school
+  course:
+    path: ../course
 
 dev_dependencies:
   flutter_test:

@@ -4,13 +4,14 @@ import 'package:presentation/presentation.dart';
 
 class RegistrationWidget extends StatefulWidget {
   final void Function(String email, String password, String firstName,
-      String lastName, Role role) onSignUp;
+      String lastName, String phoneNumber, Role role) onSignUp;
   final void Function(Role? role) onRoleChanged;
 
   final TextEditingController emailTextController;
   final TextEditingController passwordTextController;
   final TextEditingController firstNameTextController;
   final TextEditingController lastNameTextController;
+  final TextEditingController phoneNumberTextController;
 
   final Role? role;
 
@@ -24,6 +25,7 @@ class RegistrationWidget extends StatefulWidget {
     required this.passwordTextController,
     required this.firstNameTextController,
     required this.lastNameTextController,
+    required this.phoneNumberTextController,
     this.role,
     this.emailError,
     this.passwordError,
@@ -98,6 +100,17 @@ class _RegistrationState extends State<RegistrationWidget> {
           ),
           const SizedBox(height: Dimensions.SPACE_10),
           SizedBox(
+            height: 80,
+            child: TextFormField(
+              controller: widget.phoneNumberTextController,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                label: Text(AppText.PHONE_NUMBER),
+              ),
+            ),
+          ),
+          const SizedBox(height: Dimensions.SPACE_10),
+          SizedBox(
             height: 60,
             child: DropdownButton<Role>(
               value: widget.role,
@@ -123,6 +136,7 @@ class _RegistrationState extends State<RegistrationWidget> {
                     widget.passwordTextController.text,
                     widget.firstNameTextController.text,
                     widget.lastNameTextController.text,
+                    widget.phoneNumberTextController.text,
                     //TODO
                     widget.role ?? Role.STUDENT,
                   ),

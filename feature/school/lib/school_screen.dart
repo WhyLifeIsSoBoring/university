@@ -57,8 +57,9 @@ class SchoolScreen extends StatelessWidget {
                                 child: Text(
                                   state.school.title,
                                   style: TextStyle(
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold),
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                               Divider(
@@ -165,7 +166,8 @@ class SchoolScreen extends StatelessWidget {
                           ),
                         ),
                         if (state.school.enterStatus &&
-                            !state.isUserSubscribed) ...<Widget>{
+                            !state.isUserSubscribed &&
+                            state.isRegisterButtonEnabled) ...<Widget>{
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 10.0),
                             child: Row(
@@ -176,7 +178,10 @@ class SchoolScreen extends StatelessWidget {
                                     height: 50,
                                     child: ElevatedButton(
                                       onPressed: () {
-                                        //TODO
+                                        context
+                                            .read<SchoolBloc>()
+                                            .add(Registration());
+                                        _showSnackBar(context);
                                       },
                                       child: Center(
                                         child: Text('Регистрация в школу'),
@@ -203,11 +208,58 @@ class SchoolScreen extends StatelessWidget {
                     ),
                   ),
                   if (state.isUserSubscribed) ...<Widget>{
-                    Center(
-                      child: Text(
-                        'Скоро здесь появится информация',
-                        style: TextStyle(fontSize: 20),
-                        textAlign: TextAlign.center,
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 16.0,
+                        left: 8.0,
+                        right: 8.0,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 10.0),
+                            child: Text(
+                              state.school.title,
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Divider(
+                            height: 1.0,
+                            thickness: 2,
+                          ),
+                          SizedBox(height: 10.0),
+                          Text(
+                            state.school.infoForStudents,
+                            textAlign: TextAlign.justify,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Expanded(
+                                  child: Container(
+                                    height: 50,
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        context
+                                            .read<SchoolBloc>()
+                                            .add(OpenVideoConference());
+                                      },
+                                      child: Center(
+                                        child: Text('Войти в видеоконференцию'),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   } else ...<Widget>{
@@ -225,6 +277,15 @@ class SchoolScreen extends StatelessWidget {
           );
         }
       },
+    );
+  }
+
+  void _showSnackBar(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text('Заявка на регистрацию в школу отправлена'),
+        duration: const Duration(seconds: 2),
+      ),
     );
   }
 }

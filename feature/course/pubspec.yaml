@@ -17,6 +17,8 @@ dependencies:
     path: ../../../university
   video:
     path: ../video
+  domain:
+    path: ../../domain
 
 dev_dependencies:
   flutter_test:

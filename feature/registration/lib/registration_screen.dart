@@ -5,12 +5,12 @@ import 'package:registration/bloc/registration_bloc.dart';
 import 'package:registration/registration_widget.dart';
 
 class RegistrationScreen extends StatelessWidget {
-  final TextEditingController emailTextController =
-      TextEditingController();
-  final TextEditingController passwordTextController =
-      TextEditingController();
+  final TextEditingController emailTextController = TextEditingController();
+  final TextEditingController passwordTextController = TextEditingController();
   final TextEditingController firstNameTextController = TextEditingController();
   final TextEditingController lastNameTextController = TextEditingController();
+  final TextEditingController phoneNumberTextController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class RegistrationScreen extends StatelessWidget {
             body: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: <Widget>[
                   RegistrationWidget(
                     emailError: _mapAuthToEmailError(
                       context,
@@ -42,20 +42,25 @@ class RegistrationScreen extends StatelessWidget {
                       error: state.error,
                     ),
                     onSignUp: (String email, String password, String firstName,
-                        String lastName, Role role) {
-                      context.read<RegistrationBloc>().add(SignUp(
+                        String lastName, String phoneNumber, Role role) {
+                      context.read<RegistrationBloc>().add(
+                            SignUp(
                               registerParams: RegisterParams(
-                            email: email,
-                            password: password,
-                            firstName: firstName,
-                            lastName: lastName,
-                            role: role,
-                          )));
+                                email: email,
+                                password: password,
+                                firstName: firstName,
+                                lastName: lastName,
+                                phoneNumber: phoneNumber,
+                                role: role,
+                              ),
+                            ),
+                          );
                     },
                     emailTextController: emailTextController,
                     passwordTextController: passwordTextController,
                     firstNameTextController: firstNameTextController,
                     lastNameTextController: lastNameTextController,
+                    phoneNumberTextController: phoneNumberTextController,
                     role: state.selectedRole,
                     onRoleChanged: (Role? selectedRole) {
                       context

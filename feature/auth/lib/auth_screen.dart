@@ -2,7 +2,7 @@ import 'package:auth/bloc/auth_bloc.dart';
 import 'package:auth/bloc/auth_event.dart';
 import 'package:auth/bloc/auth_state.dart';
 import 'package:domain/domain.dart';
-import 'package:domain/model/sign_in_params.dart';
+import 'package:domain/model/params/sign_in_params.dart';
 
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';

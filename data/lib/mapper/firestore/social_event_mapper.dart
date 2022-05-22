@@ -4,6 +4,7 @@ const String _TITLE = 'title';
 const String _DESCRIPTION = 'description';
 const String _DATE = 'date';
 const String _IMAGE_URL = 'image_url';
+const String _ENTER_STATUS = 'enter_status';
 
 class SocialEventToFirestoreMapper {
   static Map<String, dynamic> toFirestore(SocialEvent socialEvent) {
@@ -12,6 +13,7 @@ class SocialEventToFirestoreMapper {
       _DESCRIPTION: socialEvent.description,
       _DATE: socialEvent.date,
       _IMAGE_URL: socialEvent.imageUrl,
+      _ENTER_STATUS: socialEvent.enterStatus,
     };
   }
 }
@@ -28,6 +30,7 @@ class SocialEventFromFirestoreMapper {
       date: map[_DATE] as String,
       description: map[_DESCRIPTION] as String,
       imageUrl: map[_IMAGE_URL] as String,
+      enterStatus: map[_ENTER_STATUS] as bool,
     );
   }
 }

@@ -20,7 +20,7 @@ class _EventsScreenState extends State<EventsScreen> {
             appBar: AppBar(
               centerTitle: true,
               title: Text(
-                'События',
+                'Мероприятия',
               ),
             ),
             body: Padding(

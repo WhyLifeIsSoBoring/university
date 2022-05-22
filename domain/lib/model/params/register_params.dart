@@ -5,6 +5,7 @@ class RegisterParams {
   final String password;
   final String firstName;
   final String lastName;
+  final String phoneNumber;
   final Role role;
 
   const RegisterParams({
@@ -12,6 +13,7 @@ class RegisterParams {
     required this.password,
     required this.firstName,
     required this.lastName,
+    required this.phoneNumber,
     required this.role,
   });
 }

@@ -1,5 +1,5 @@
-import 'package:domain/model/register_params.dart';
-import 'package:domain/model/sign_in_params.dart';
+import 'package:domain/model/params/register_params.dart';
+import 'package:domain/model/params/sign_in_params.dart';
 
 abstract class AuthRepository {
   Future<void> signIn(SignInParams params);

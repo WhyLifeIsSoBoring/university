@@ -8,6 +8,7 @@ extension SocialEventDataToDomainMapper on data.SocialEvent {
       description: description,
       date: date,
       imageUrl: imageUrl,
+      enterStatus: enterStatus,
     );
   }
 }
@@ -19,6 +20,7 @@ extension SocialEventDomainToDataMapper on domain.SocialEvent {
       description: description,
       date: date,
       imageUrl: imageUrl,
+      enterStatus: enterStatus,
     );
   }
 }

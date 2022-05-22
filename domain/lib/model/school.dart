@@ -8,6 +8,9 @@ class School {
   final String teacherId;
   final List<String> studentIds;
   final bool enterStatus;
+  final String infoForStudents;
+  final String videoRoomToken;
+  final String videoRoomName;
 
   const School({
     required this.title,
@@ -19,5 +22,8 @@ class School {
     required this.teacherId,
     required this.studentIds,
     required this.enterStatus,
+    required this.infoForStudents,
+    required this.videoRoomToken,
+    required this.videoRoomName,
   });
 }

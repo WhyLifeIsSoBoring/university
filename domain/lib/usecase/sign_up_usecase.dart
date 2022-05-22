@@ -1,4 +1,4 @@
-import 'package:domain/model/register_params.dart';
+import 'package:domain/model/params/register_params.dart';
 import 'package:domain/repository/auth_repository.dart';
 import 'package:domain/usecase/usecase.dart';
 

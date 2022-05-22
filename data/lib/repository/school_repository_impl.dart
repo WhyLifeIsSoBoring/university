@@ -1,3 +1,4 @@
+import 'package:data/mapper/register_in_school_params_mapper.dart';
 import 'package:data/mapper/school_mapper.dart';
 import 'package:data/model/school.dart' as data;
 import 'package:data/provider/school_provider.dart';
@@ -25,6 +26,19 @@ class SchoolRepositoryImpl extends SchoolRepository {
   Future<void> save({required School school}) async {
     try {
       await _schoolProvider.save(school: school.toData());
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  @override
+  Future<void> register({
+    required RegisterInSchoolParams registerInSchoolParams,
+  }) async {
+    try {
+      await _schoolProvider.register(
+        registerInSchoolParams: registerInSchoolParams.toData(),
+      );
     } catch (e) {
       throw Exception(e);
     }

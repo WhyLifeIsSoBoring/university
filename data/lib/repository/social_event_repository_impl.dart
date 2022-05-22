@@ -1,3 +1,4 @@
+import 'package:data/mapper/register_for_social_event_params_mapper.dart';
 import 'package:data/mapper/social_event_mapper.dart';
 import 'package:data/model/social_event.dart' as data;
 import 'package:data/provider/social_event_provider.dart';
@@ -25,6 +26,19 @@ class SocialEventRepositoryImpl extends SocialEventRepository {
   Future<void> save({required SocialEvent socialEvent}) async {
     try {
       await _socialEventProvider.save(socialEvent: socialEvent.toData());
+    } catch (e) {
+      throw Exception('Something went wrong while saving data');
+    }
+  }
+
+  @override
+  Future<void> register({
+    required RegisterForSocialEventParams registerForSocialEventParams,
+  }) async {
+    try {
+      await _socialEventProvider.register(
+        registerForSocialEventParams: registerForSocialEventParams.toData(),
+      );
     } catch (e) {
       throw Exception('Something went wrong while saving data');
     }

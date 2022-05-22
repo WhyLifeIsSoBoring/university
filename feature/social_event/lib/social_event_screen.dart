@@ -11,7 +11,7 @@ class SocialEventScreen extends StatelessWidget {
           appBar: AppBar(
             centerTitle: true,
             title: Text(
-              'События',
+              'Мероприятия',
             ),
             leading: IconButton(
               icon: Icon(Icons.arrow_back_ios),
@@ -20,42 +20,83 @@ class SocialEventScreen extends StatelessWidget {
               },
             ),
           ),
-          body: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.only(
-                top: 16.0,
-                left: 8.0,
-                right: 8.0,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    state.event.title,
-                    style: TextStyle(fontSize: 20),
+          body: Padding(
+            padding: const EdgeInsets.only(
+              top: 16.0,
+              left: 8.0,
+              right: 8.0,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Flexible(
+                  child: ListView(
+                    children: <Widget>[
+                      Text(
+                        state.event.title,
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      SizedBox(height: 10.0),
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: CachedNetworkImage(
+                            imageUrl: state.event.imageUrl),
+                      ),
+                      SizedBox(height: 10.0),
+                      Text(
+                        state.event.description,
+                        style: TextStyle(fontSize: 16),
+                        textAlign: TextAlign.justify,
+                      ),
+                      SizedBox(height: 10.0),
+                      Text(
+                        state.event.date,
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 10.0),
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: CachedNetworkImage(imageUrl: state.event.imageUrl),
+                ),
+                if (state.isRegisterButtonEnabled) ...<Widget>{
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            height: 50,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                context
+                                    .read<SocialEventBloc>()
+                                    .add(Registration());
+                                _showSnackBar(context);
+                              },
+                              child: Center(
+                                child: Text('Регистрация на мероприятие'),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    state.event.description,
-                    style: TextStyle(fontSize: 16),
-                    textAlign: TextAlign.justify,
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    state.event.date,
-                    style: TextStyle(fontSize: 16),
-                  )
-                ],
-              ),
+                }
+              ],
             ),
           ),
         );
       },
+    );
+  }
+
+  void _showSnackBar(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text('Заявка на регистрацию на мероприятие отправлена'),
+        duration: const Duration(seconds: 2),
+      ),
     );
   }
 }

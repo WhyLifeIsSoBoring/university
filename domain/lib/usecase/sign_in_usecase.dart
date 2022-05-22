@@ -1,4 +1,4 @@
-import 'package:domain/model/sign_in_params.dart';
+import 'package:domain/model/params/sign_in_params.dart';
 import 'package:domain/repository/auth_repository.dart';
 import 'package:domain/usecase/usecase.dart';
 

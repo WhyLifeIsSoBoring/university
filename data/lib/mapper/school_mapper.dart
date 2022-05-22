@@ -13,6 +13,9 @@ extension SchoolDataToDomainMapper on data.School {
       teacherId: teacherId,
       studentIds: studentIds,
       enterStatus: enterStatus,
+      infoForStudents: infoForStudents,
+      videoRoomToken: videoRoomToken,
+      videoRoomName: videoRoomName,
     );
   }
 }
@@ -29,6 +32,9 @@ extension SchoolDomainToDataMapper on domain.School {
       teacherId: teacherId,
       studentIds: studentIds,
       enterStatus: enterStatus,
+      infoForStudents: infoForStudents,
+      videoRoomToken: videoRoomToken,
+      videoRoomName: videoRoomName,
     );
   }
 }

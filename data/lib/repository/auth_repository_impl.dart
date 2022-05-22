@@ -56,7 +56,11 @@ class AuthRepositoryImpl extends domain.AuthRepository {
         firstName: params.firstName,
         lastName: params.lastName,
         email: newUser.email,
+        phoneNumber: params.phoneNumber,
         role: params.role.toCustomString(),
+        achievements: <String>[],
+        courses: <String>[],
+        schools: <String>[],
       ),
     );
   }

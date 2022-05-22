@@ -1,7 +1,9 @@
 import 'package:core/core.dart';
 import 'package:data/provider/auth_provider.dart';
+import 'package:data/provider/course_provider.dart';
 import 'package:data/provider/file_provider.dart';
 import 'package:data/provider/firebase/firebase_auth_provider.dart';
+import 'package:data/provider/firebase/firebase_course_provider.dart';
 import 'package:data/provider/firebase/firebase_file_provider.dart';
 import 'package:data/provider/firebase/firebase_school_provider.dart';
 import 'package:data/provider/firebase/firebase_social_event_provider.dart';
@@ -10,6 +12,7 @@ import 'package:data/provider/prefs_provider.dart';
 import 'package:data/provider/school_provider.dart';
 import 'package:data/provider/social_event_provider.dart';
 import 'package:data/repository/auth_repository_impl.dart';
+import 'package:data/repository/course_repository_impl.dart';
 import 'package:data/repository/school_repository_impl.dart';
 import 'package:data/repository/social_event_repository_impl.dart';
 import 'package:data/repository/user_repository_impl.dart';
@@ -52,6 +55,10 @@ class DataDi {
     _serviceLocator.registerLazySingleton<SchoolProvider>(
       () => FirebaseSchoolProvider(),
     );
+
+    _serviceLocator.registerLazySingleton<CourseProvider>(
+      () => FirebaseCourseProvider(),
+    );
   }
 
   void _initRepositories() {
@@ -80,16 +87,25 @@ class DataDi {
         schoolProvider: _serviceLocator.get<SchoolProvider>(),
       ),
     );
+
+    _serviceLocator.registerLazySingleton<CourseRepository>(
+      () => CourseRepositoryImpl(
+        courseProvider: _serviceLocator.get<CourseProvider>(),
+      ),
+    );
   }
 
   void _initUseCases() {
-    _serviceLocator.registerFactory<SignInUseCase>(() => SignInUseCase(
-          authRepository: _serviceLocator.get<AuthRepository>(),
-        ),);
+    _serviceLocator.registerFactory<SignInUseCase>(
+      () => SignInUseCase(
+        authRepository: _serviceLocator.get<AuthRepository>(),
+      ),
+    );
 
-    _serviceLocator.registerFactory<SignUpUseCase>(() => SignUpUseCase(
-          authRepository: _serviceLocator.get<AuthRepository>(),
-        ),
+    _serviceLocator.registerFactory<SignUpUseCase>(
+      () => SignUpUseCase(
+        authRepository: _serviceLocator.get<AuthRepository>(),
+      ),
     );
   }
 

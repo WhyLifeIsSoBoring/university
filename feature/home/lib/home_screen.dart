@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:home/courses/courses_screen.dart';
 import 'package:home/events/events_screen.dart';
 import 'package:home/schools/schools_screen.dart';
 import 'package:presentation/presentation.dart';
@@ -27,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Icon(Icons.newspaper_rounded),
                     Padding(
                       padding: EdgeInsets.only(top: 4.0),
-                      child: Text('События'),
+                      child: Text('Мероприятия'),
                     )
                   ],
                 ),
@@ -103,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 builder: (BuildContext context) {
                   return CupertinoPageScaffold(
                     backgroundColor: AppColorTheme.white,
-                    child: EventsScreen(),
+                    child: CoursesScreen(),
                   );
                 },
               );
