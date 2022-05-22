@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  url_launcher: ^6.1.0
 
   domain:
     path: ../../domain
@@ -25,6 +26,8 @@ dependencies:
     path: ../school
   course:
     path: ../course
+  auth:
+    path: ../auth
 
 dev_dependencies:
   flutter_test:

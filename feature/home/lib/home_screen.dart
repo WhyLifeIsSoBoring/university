@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:home/courses/courses_screen.dart';
 import 'package:home/events/events_screen.dart';
+import 'package:home/more/more_screen.dart';
 import 'package:home/schools/schools_screen.dart';
 import 'package:presentation/presentation.dart';
 
@@ -70,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Icon(Icons.more_vert_outlined),
                     Padding(
                       padding: EdgeInsets.only(top: 4.0),
-                      child: Text('Еще'),
+                      child: Text('Ещё'),
                     )
                   ],
                 ),
@@ -113,16 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 builder: (BuildContext context) {
                   return CupertinoPageScaffold(
                     backgroundColor: AppColorTheme.white,
-                    child: EventsScreen(),
-                  );
-                },
-              );
-            case 4:
-              return CupertinoTabView(
-                builder: (BuildContext context) {
-                  return CupertinoPageScaffold(
-                    backgroundColor: AppColorTheme.white,
-                    child: EventsScreen(),
+                    child: MoreScreen(),
                   );
                 },
               );
