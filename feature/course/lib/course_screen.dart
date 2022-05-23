@@ -80,7 +80,8 @@ class CourseScreen extends StatelessWidget {
                                     const EdgeInsets.symmetric(vertical: 5.0),
                                 child: Text(
                                   state.course.description,
-                                  style: TextStyle(fontSize: 14.0),
+                                  style: TextStyle(fontSize: 15.0),
+                                  textAlign: TextAlign.justify,
                                 ),
                               ),
                               Divider(
@@ -100,7 +101,8 @@ class CourseScreen extends StatelessWidget {
                                     const EdgeInsets.symmetric(vertical: 5.0),
                                 child: Text(
                                   state.course.schedule,
-                                  style: TextStyle(fontSize: 14.0),
+                                  style: TextStyle(fontSize: 15.0),
+                                  textAlign: TextAlign.justify,
                                 ),
                               ),
                               Divider(
@@ -120,7 +122,8 @@ class CourseScreen extends StatelessWidget {
                                     const EdgeInsets.symmetric(vertical: 5.0),
                                 child: Text(
                                   state.course.price,
-                                  style: TextStyle(fontSize: 14.0),
+                                  style: TextStyle(fontSize: 15.0),
+                                  textAlign: TextAlign.justify,
                                 ),
                               ),
                               Divider(
@@ -140,7 +143,8 @@ class CourseScreen extends StatelessWidget {
                                     const EdgeInsets.symmetric(vertical: 5.0),
                                 child: Text(
                                   state.course.contact,
-                                  style: TextStyle(fontSize: 14.0),
+                                  style: TextStyle(fontSize: 15.0),
+                                  textAlign: TextAlign.justify,
                                 ),
                               ),
                               Divider(
@@ -160,7 +164,8 @@ class CourseScreen extends StatelessWidget {
                                     const EdgeInsets.symmetric(vertical: 5.0),
                                 child: Text(
                                   state.course.registration,
-                                  style: TextStyle(fontSize: 14.0),
+                                  style: TextStyle(fontSize: 15.0),
+                                  textAlign: TextAlign.justify,
                                 ),
                               ),
                             ],
@@ -209,11 +214,60 @@ class CourseScreen extends StatelessWidget {
                     ),
                   ),
                   if (state.isUserSubscribed) ...<Widget>{
-                    Center(
-                      child: Text(
-                        'Скоро здесь появится информация',
-                        style: TextStyle(fontSize: 20),
-                        textAlign: TextAlign.center,
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 16.0,
+                        left: 8.0,
+                        right: 8.0,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 10.0),
+                            child: Text(
+                              state.course.title,
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.justify,
+                            ),
+                          ),
+                          Divider(
+                            height: 1.0,
+                            thickness: 2,
+                          ),
+                          SizedBox(height: 10.0),
+                          Text(
+                            state.course.infoForStudents,
+                            style: TextStyle(fontSize: 16),
+                            textAlign: TextAlign.justify,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Expanded(
+                                  child: Container(
+                                    height: 50,
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        context
+                                            .read<CourseBloc>()
+                                            .add(OpenVideoConference());
+                                      },
+                                      child: Center(
+                                        child: Text('Войти в видеоконференцию'),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   } else ...<Widget>{

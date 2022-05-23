@@ -2,6 +2,7 @@ import 'package:course/bloc/course_event.dart';
 import 'package:course/bloc/course_state.dart';
 import 'package:domain/domain.dart';
 import 'package:presentation/presentation.dart';
+import 'package:video/video.dart';
 
 export 'course_event.dart';
 export 'course_state.dart';
@@ -20,23 +21,45 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
 
   @override
   Stream<CourseState> mapEventToState(CourseEvent event) async* {
-    if (event is Pop) {
-      _appRouter.pop();
-    } else if (event is Registration) {
-      final User? currentUser = await _userRepository.getCurrent();
+    try {
+      if (event is InitEvent) {
+        final User? currentUser = await _userRepository.getCurrent();
+        yield state.copyWith(user: currentUser);
 
-      if (currentUser != null) {
-        await _courseRepository.register(
-          registerForCourseParams: RegisterForCourseParams(
-              courseTitle: state.course.title,
-              studentEmail: currentUser.email,
-              studentFirstName: currentUser.firstName,
-              studentLastName: currentUser.lastName,
-              studentPhoneNumber: currentUser.phoneNumber),
+        if (currentUser != null &&
+            (state.course.studentIds.contains(currentUser.id) ||
+                state.course.teacherId == currentUser.id)) {
+          yield state.copyWith(isUserSubscribed: true);
+        }
+      } else if (event is Pop) {
+        _appRouter.pop();
+      } else if (event is Registration) {
+        final User? currentUser = await _userRepository.getCurrent();
+
+        if (currentUser != null) {
+          await _courseRepository.register(
+            registerForCourseParams: RegisterForCourseParams(
+                courseTitle: state.course.title,
+                studentEmail: currentUser.email,
+                studentFirstName: currentUser.firstName,
+                studentLastName: currentUser.lastName,
+                studentPhoneNumber: currentUser.phoneNumber),
+          );
+
+          yield state.copyWith(isRegisterButtonEnabled: false);
+        }
+      } else if (event is OpenVideoConference) {
+        _appRouter.push(
+          VideoFeature.page(
+            roomName: state.course.videoRoomName,
+            roomToken: state.course.videoRoomToken,
+          ),
         );
-
-        yield state.copyWith(isRegisterButtonEnabled: false);
       }
+    } catch (e) {
+      yield state.copyWith(
+        errorMessage: 'Что-то пошло не так при загрузке данных',
+      );
     }
   }
 }

@@ -10,7 +10,7 @@
     <!-- The Agora SDK requires Bluetooth permissions in case users are using Bluetooth devices.-->
     <uses-permission  android:name="android.permission.BLUETOOTH"  />
    <application
-        android:label="university"
+        android:label="Школа юных БГУ"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

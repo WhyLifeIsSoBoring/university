@@ -60,6 +60,7 @@ class SchoolScreen extends StatelessWidget {
                                     fontSize: 18.0,
                                     fontWeight: FontWeight.bold,
                                   ),
+                                  textAlign: TextAlign.justify,
                                 ),
                               ),
                               Divider(
@@ -79,7 +80,8 @@ class SchoolScreen extends StatelessWidget {
                                     const EdgeInsets.symmetric(vertical: 5.0),
                                 child: Text(
                                   state.school.description,
-                                  style: TextStyle(fontSize: 14.0),
+                                  style: TextStyle(fontSize: 15.0),
+                                  textAlign: TextAlign.justify,
                                 ),
                               ),
                               Divider(
@@ -99,7 +101,8 @@ class SchoolScreen extends StatelessWidget {
                                     const EdgeInsets.symmetric(vertical: 5.0),
                                 child: Text(
                                   state.school.schedule,
-                                  style: TextStyle(fontSize: 14.0),
+                                  style: TextStyle(fontSize: 15.0),
+                                  textAlign: TextAlign.justify,
                                 ),
                               ),
                               Divider(
@@ -119,7 +122,8 @@ class SchoolScreen extends StatelessWidget {
                                     const EdgeInsets.symmetric(vertical: 5.0),
                                 child: Text(
                                   state.school.price,
-                                  style: TextStyle(fontSize: 14.0),
+                                  style: TextStyle(fontSize: 15.0),
+                                  textAlign: TextAlign.justify,
                                 ),
                               ),
                               Divider(
@@ -139,7 +143,8 @@ class SchoolScreen extends StatelessWidget {
                                     const EdgeInsets.symmetric(vertical: 5.0),
                                 child: Text(
                                   state.school.contact,
-                                  style: TextStyle(fontSize: 14.0),
+                                  style: TextStyle(fontSize: 15.0),
+                                  textAlign: TextAlign.justify,
                                 ),
                               ),
                               Divider(
@@ -159,7 +164,8 @@ class SchoolScreen extends StatelessWidget {
                                     const EdgeInsets.symmetric(vertical: 5.0),
                                 child: Text(
                                   state.school.registration,
-                                  style: TextStyle(fontSize: 14.0),
+                                  style: TextStyle(fontSize: 15.0),
+                                  textAlign: TextAlign.justify,
                                 ),
                               ),
                             ],
@@ -225,6 +231,7 @@ class SchoolScreen extends StatelessWidget {
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.bold,
                               ),
+                              textAlign: TextAlign.justify,
                             ),
                           ),
                           Divider(
