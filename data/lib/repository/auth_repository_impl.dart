@@ -5,19 +5,20 @@ import 'package:data/model/user.dart' as data;
 import 'package:data/provider/auth_provider.dart';
 import 'package:data/provider/firebase/firebase_user_provider.dart';
 import 'package:data/provider/prefs_provider.dart';
+import 'package:data/provider/user_provider.dart';
 import 'package:domain/domain.dart' as domain;
 
 class AuthRepositoryImpl extends domain.AuthRepository {
   final AuthProvider _authProvider;
-  final FirebaseUserProvider _firebaseUserProvider;
+  final UserProvider _userProvider;
   final PrefsProvider _prefsProvider;
 
   AuthRepositoryImpl({
     required AuthProvider authProvider,
-    required FirebaseUserProvider firebaseUserProvider,
+    required UserProvider userProvider,
     required PrefsProvider prefsProvider,
   })  : _authProvider = authProvider,
-        _firebaseUserProvider = firebaseUserProvider,
+        _userProvider = userProvider,
         _prefsProvider = prefsProvider;
 
   @override
@@ -30,7 +31,7 @@ class AuthRepositoryImpl extends domain.AuthRepository {
     );
 
     final data.User user =
-        await _firebaseUserProvider.getById(id: firebaseUser.id);
+        await _userProvider.getById(id: firebaseUser.id);
 
     await _prefsProvider.saveUser(user.toDomain());
   }
@@ -50,7 +51,7 @@ class AuthRepositoryImpl extends domain.AuthRepository {
       ),
     );
 
-    await _firebaseUserProvider.save(
+    await _userProvider.save(
       user: data.User(
         id: newUser.id,
         firstName: params.firstName,

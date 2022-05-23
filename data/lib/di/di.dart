@@ -11,6 +11,7 @@ import 'package:data/provider/firebase/firebase_user_provider.dart';
 import 'package:data/provider/prefs_provider.dart';
 import 'package:data/provider/school_provider.dart';
 import 'package:data/provider/social_event_provider.dart';
+import 'package:data/provider/user_provider.dart';
 import 'package:data/repository/auth_repository_impl.dart';
 import 'package:data/repository/course_repository_impl.dart';
 import 'package:data/repository/school_repository_impl.dart';
@@ -41,8 +42,8 @@ class DataDi {
     _serviceLocator
         .registerLazySingleton<AuthProvider>(() => FirebaseAuthProvider());
 
-    _serviceLocator.registerLazySingleton<FirebaseUserProvider>(
-        () => FirebaseUserProvider());
+    _serviceLocator
+        .registerLazySingleton<UserProvider>(() => FirebaseUserProvider());
 
     _serviceLocator.registerLazySingleton<FileProvider>(
       () => FirebaseFileProvider(),
@@ -65,7 +66,7 @@ class DataDi {
     _serviceLocator.registerLazySingleton<AuthRepository>(
       () => AuthRepositoryImpl(
         authProvider: _serviceLocator.get<AuthProvider>(),
-        firebaseUserProvider: _serviceLocator.get<FirebaseUserProvider>(),
+        userProvider: _serviceLocator.get<UserProvider>(),
         prefsProvider: _serviceLocator.get<PrefsProvider>(),
       ),
     );
@@ -73,6 +74,7 @@ class DataDi {
     _serviceLocator.registerLazySingleton<UserRepository>(
       () => UserRepositoryImpl(
         prefsProvider: _serviceLocator.get<PrefsProvider>(),
+        userProvider: _serviceLocator.get<UserProvider>(),
       ),
     );
 

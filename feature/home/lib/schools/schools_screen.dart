@@ -83,7 +83,7 @@ class _SchoolsScreenState extends State<SchoolsScreen> {
                             Expanded(
                               child: Text(
                                 filteredSchools[index].title,
-                                style: TextStyle(fontSize: 14.0),
+                                style: TextStyle(fontSize: 16.0),
                                 textAlign: TextAlign.justify,
                               ),
                             ),
@@ -97,7 +97,10 @@ class _SchoolsScreenState extends State<SchoolsScreen> {
                                           school: filteredSchools[index]));
                                 },
                                 child: Center(
-                                  child: Text('Описание'),
+                                  child: Text(
+                                    'Описание',
+                                    style: TextStyle(fontSize: 16.0),
+                                  ),
                                 ),
                               ),
                             )

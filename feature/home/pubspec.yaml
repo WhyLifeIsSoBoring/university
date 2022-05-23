@@ -28,6 +28,8 @@ dependencies:
     path: ../course
   auth:
     path: ../auth
+  user_profile:
+    path: ../user_profile
 
 dev_dependencies:
   flutter_test:

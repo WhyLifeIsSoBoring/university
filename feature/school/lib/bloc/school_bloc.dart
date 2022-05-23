@@ -19,7 +19,7 @@ class SchoolBloc extends Bloc<SchoolEvent, SchoolState> {
   Stream<SchoolState> mapEventToState(SchoolEvent event) async* {
     try {
       if (event is InitEvent) {
-        final User? currentUser = _userRepository.getCurrent();
+        final User? currentUser = await _userRepository.getCurrent();
         yield state.copyWith(user: currentUser);
 
         if (currentUser != null &&

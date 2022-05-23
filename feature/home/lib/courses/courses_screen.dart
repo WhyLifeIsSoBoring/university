@@ -83,7 +83,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
                             Expanded(
                               child: Text(
                                 filteredCourses[index].title,
-                                style: TextStyle(fontSize: 14.0),
+                                style: TextStyle(fontSize: 16.0),
                                 textAlign: TextAlign.justify,
                               ),
                             ),
@@ -97,7 +97,10 @@ class _CoursesScreenState extends State<CoursesScreen> {
                                           course: filteredCourses[index]));
                                 },
                                 child: Center(
-                                  child: Text('Описание'),
+                                  child: Text(
+                                    'Описание',
+                                    style: TextStyle(fontSize: 16.0),
+                                  ),
                                 ),
                               ),
                             )

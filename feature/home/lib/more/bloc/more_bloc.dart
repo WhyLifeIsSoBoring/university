@@ -4,6 +4,7 @@ import 'package:home/more/bloc/more_event.dart';
 import 'package:home/more/bloc/more_state.dart';
 import 'package:presentation/presentation.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:user_profile/user_profile.dart';
 
 export 'more_event.dart';
 export 'more_state.dart';
@@ -26,7 +27,9 @@ class MoreBloc extends Bloc<MoreEvent, MoreState> {
       await _launchUrl(Uri.parse(_LIBRARY_URL));
     } else if (event is OpenTests) {
       await _launchUrl(Uri.parse(_TESTS_URL));
-    } else if (event is OpenUserCabinet) {}
+    } else if (event is OpenUserProfile) {
+      _appRouter.push(UserProfileFeature.page());
+    }
   }
 
   Future<void> _launchUrl(Uri url) async {

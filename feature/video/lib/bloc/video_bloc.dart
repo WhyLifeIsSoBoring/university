@@ -14,7 +14,7 @@ class VideoBloc extends Bloc<VideoEvent, VideoState> {
   @override
   Stream<VideoState> mapEventToState(VideoEvent event) async* {
     if (event is InitEvent) {
-      final User? currentUser = _userRepository.getCurrent();
+      final User? currentUser = await _userRepository.getCurrent();
 
       yield VideoState(user: currentUser);
     }

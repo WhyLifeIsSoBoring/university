@@ -80,7 +80,7 @@ class MoreScreen extends StatelessWidget {
                   SizedBox(height: 10.0),
                   GestureDetector(
                     onTap: () {
-                      context.read<MoreBloc>().add(OpenUserCabinet());
+                      context.read<MoreBloc>().add(OpenUserProfile());
                     },
                     child: Container(
                       height: 40,

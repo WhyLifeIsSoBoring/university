@@ -23,7 +23,7 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
     if (event is Pop) {
       _appRouter.pop();
     } else if (event is Registration) {
-      final User? currentUser = _userRepository.getCurrent();
+      final User? currentUser = await _userRepository.getCurrent();
 
       if (currentUser != null) {
         await _courseRepository.register(
